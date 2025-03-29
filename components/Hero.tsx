@@ -14,40 +14,44 @@ const Hero = () => {
   const contentRef = useRef(null);
   const tagRef = useRef(null); // Tag informasi tambahan
 
-useIsomorphicLayoutEffect(() => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      id: 'hero', // ✅ Tambahkan ID
-      trigger: heroRef.current,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true,
-      pin: true,
-    },
-  });
+  useIsomorphicLayoutEffect(() => {
+  if (typeof window === 'undefined') return;
 
-  tl.to(bgRef.current, {
-    scale: 0.9,
-    borderRadius: '20px',
-    duration: 1,
-  });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'hero', // ✅ Tambahkan ID
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+          pin: true,
+        },
+      });
 
-  // Hilangkan tag tambahan ketika scroll turun
-  tl.to(tagRef.current, {
-    opacity: 0,
-    y: -20,
-    duration: 0.5,
-  });
+      tl.to(bgRef.current, {
+        scale: 0.9,
+        borderRadius: '20px',
+        duration: 1,
+      });
 
-  tl.to(contentRef.current, {
-    opacity: 1,
-    y: -20,
-    duration: 1,
-  });
+      // Hilangkan tag tambahan ketika scroll turun
+      tl.to(tagRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
+      });
+
+      tl.to(contentRef.current, {
+        opacity: 1,
+        y: -20,
+        duration: 1,
+      });
+    }, heroRef);
 
   return () => {
-    if (ScrollTrigger.getById('hero')) ScrollTrigger.getById('hero').kill();
-  };
+ScrollTrigger.getById('hero')?.kill();
+ctx.revert();  };
 }, []);
 
   return (
