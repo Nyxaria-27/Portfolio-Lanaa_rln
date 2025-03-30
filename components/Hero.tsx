@@ -92,16 +92,23 @@ ctx.revert();  };
       {/* Konten */}
       <div ref={contentRef} className='mt-5 opacity-0 relative z-10'>
         <h2 className='text-4xl font-bold text-secondary'>
-          Halo! Saya Laras Rizki Alana
+          Hi, I’m Laras Rizki Alana
         </h2>
         <p className='text-lg text-secondary mt-2 mb-7'>
-          Seorang profesional dalam Administrasi dan Pengolahan Data
+          A Data Enthusiast & Office Management Expert.
         </p>
-        <a
-          href='#contact'
-          className='bg-black text-white outline-offset-2 outline-2 px-6 py-2 rounded-lg hover:bg-white hover:border-white hover:text-black hover:outline-offset-2 hover:outline-white transition duration-700 relative z-10'>
-          Hubungi Saya
-        </a>
+        <div className='relative z-10 space-x-7'>
+          <a
+            href='#contact'
+            className='bg-white py-2 text-black outline-offset-2 outline-2 px-6  rounded-lg hover:bg-black hover:border-black hover:text-white hover:outline-offset-2 hover:outline-black transition duration-700 '>
+            Download CV
+          </a>
+          <a
+            href='#contact'
+            className='bg-black py-2 text-white outline-offset-2 outline-2 px-6 rounded-lg hover:bg-white hover:border-white hover:text-black hover:outline-offset-2 hover:outline-white transition duration-700 '>
+            Hubungi Saya
+          </a>
+        </div>
       </div>
     </section>
   );

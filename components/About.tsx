@@ -13,8 +13,11 @@ const About = () => {
           <Image
             src='/Profile.jpg'
             alt='Laras Rizki Alana'
+            quality={100}
             width={500}
             height={300}
+            data-nimg={1}
+            className='w-full rounded-lg shadow-lg shadow-gray-700'
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px'
           />
           <div className='text-lg text-main text-left max-w-2xl'>

@@ -1,37 +1,33 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { League_Spartan } from 'next/font/google';
-import { MdDarkMode, MdLightMode } from 'react-icons/md'; // Icon for Dark/Light mode
-import { motion } from 'framer-motion';
+import { MdDarkMode, MdLightMode, MdMenu, MdClose } from 'react-icons/md'; // Icons
+import { motion, AnimatePresence } from 'framer-motion';
 
 const leagueSpartan = League_Spartan({ subsets: ['latin'] });
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // State untuk dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      setIsScrolled(window.scrollY > 50);
+      if (isMenuOpen) {
+        setIsMenuOpen(false); // Tutup menu saat scroll
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMenuOpen]);
 
-  // Handle Dark Mode toggle
   const handleDarkModeToggle = () => {
     setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', !isDarkMode);
   };
+
   return (
     <div className={leagueSpartan.className}>
       <motion.div
@@ -42,63 +38,96 @@ const Navbar = () => {
           isScrolled ? '' : ''
         }`}>
         <div
-          className={`flex justify-between items-center p-4 mx-3.5 mt-2.5 border-2 rounded-3xl transition-all duration-300 ease-in-out 
-        ${
-          isScrolled
-            ? 'bg-(--primary) border-secondary shadow-lg shadow-gray-900'
-            : 'bg-transparent border-transparent'
-        }`}>
-          {/* Logo */}
-          <div className='flex items-center'>
-            <Link href='#'>
-              <span
-                className={`ml-2 font-bold text-2xl transition-all duration-300 ${
-                  isScrolled ? 'text-secondary' : 'text-white'
-                }`}>
-                Laras Rizki Alana ©️
-              </span>
-            </Link>
-          </div>
+          className={`flex justify-between items-center p-4 mx-3.5 mt-2.5 border-2 rounded-3xl transition-all duration-300 ease-in-out ${
+            isScrolled
+              ? 'bg-(--primary) border shadow-lg shadow-gray-900'
+              : 'bg-transparent border-transparent text-white'
+          }`}>
+          <Link href='#'>
+            <span className='ml-2 font-bold text-2xl cursor-pointer'>
+              Laras Rizki Alana ©️
+            </span>
+          </Link>
 
-          {/* Navbar */}
-          <nav className='flex space-x-6'>
-            <Link
-              href='#about'
-              className={`hover:text-accent transition-all duration-300 ${
-                isScrolled ? 'text-secondary' : 'text-white'
-              }`}>
-              About Me
-            </Link>
-            <Link
-              href='#experience'
-              className={`hover:text-accent transition-all duration-300 ${
-                isScrolled ? 'text-secondary' : 'text-white'
-              }`}>
-              Experience & Skills
-            </Link>
-            <Link
-              href='#experience'
-              className={`hover:text-accent transition-all duration-300 ${
-                isScrolled ? 'text-secondary' : 'text-white'
-              }`}>
-              Project & Hobbies
-            </Link>
-            <Link
-              href='#contact'
-              className={`hover:text-accent transition-all duration-300 ${
-                isScrolled ? 'text-secondary' : 'text-white'
-              }`}>
-              Contact
-            </Link>
-            {/* Dark Mode Toggle Button */}
+          {/* Desktop Navigation */}
+          <nav className='hidden md:flex space-x-6'>
+            {[
+              'About Me',
+              'Experience & Skills',
+              'Project & Hobbies',
+              'Contact',
+            ].map((item, index) => (
+              <Link
+                key={index}
+                href={`#${item
+                  .toLowerCase()
+                  .replace(/ & /g, '')
+                  .replace(/ /g, '')}`}
+                className='hover:text-accent transition-all duration-300 '>
+                {item}
+              </Link>
+            ))}
             <div
-              className='text-white text-2xl cursor-pointer md:hidden'
+              className=' text-2xl cursor-pointer'
               onClick={handleDarkModeToggle}>
               {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
             </div>
           </nav>
+          {/* Mobile Menu Button */}
+          <div
+            className='md:hidden text-2xl cursor-pointer p-0.5 rounded-2xl hover:bg-gray-400'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <MdClose /> : <MdMenu />}
+          </div>
         </div>
       </motion.div>
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className={`fixed  left-0 flex-wrap w-full h-[50vh] bg-(--primary) flex flex-col items-center md:hidden z-70 ${
+              isScrolled ? 'bg-transparent px-3.5' : 'bg-white'
+            }`}>
+            <MdClose
+              className='md:hidden text-3xl cursor-pointer absolute top-5 right-7 rounded-2xl hover:bg-gray-500 p-0.5'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            />
+            <div
+              className={`flex flex-col items-center p-6 w-full mt-2.5 border-2 rounded-3xl space-y-4 transition-all duration-300 ease-in-out ${
+                isScrolled
+                  ? 'bg-(--primary) border shadow-lg shadow-gray-900'
+                  : 'bg-transparent border-transparent'
+              }`}>
+              {[
+                'About Me',
+                'Experience & Skills',
+                'Project & Hobbies',
+                'Contact',
+              ].map((item, index) => (
+                <Link
+                  key={index}
+                  href={`#${item
+                    .toLowerCase()
+                    .replace(/ & /g, '')
+                    .replace(/ /g, '')}`}
+                  className='text-lg w-full text-center rounded-2xl hover:bg-gray-500 mt-2 transition-all duration-300'
+                  onClick={() => setIsMenuOpen(false)}>
+                  {item}
+                </Link>
+              ))}
+              <div
+                className='flex flex-col items-center text-2xl cursor-pointer w-full rounded-2xl hover:bg-gray-500'
+                onClick={handleDarkModeToggle}>
+                {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
