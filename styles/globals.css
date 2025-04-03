@@ -1,8 +1,62 @@
-@import "tailwindcss";
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
+@import 'tailwindcss';
+
+/* ROOT */
+
+/* LIGHT MODE */
+:root {
+  --background: #f8f9fa; /* Putih tulang agar tidak terlalu terang */
+  --text: #1e1e2e; /* Abu gelap agar lebih ramah di mata */
+  --paragraph: #3d3d4e; /* Sedikit lebih soft dari teks utama */
+  --buttontext: #000; /* Lebih gelap agar lebih readable */
+  --buttonstroke: #1e1e2e; /* Abu-abu soft untuk elemen garis */
+  --stroke: #d1d5db; /* Abu-abu soft untuk elemen garis */
+  --hover: #d1d5dc ;
+  --main: #ffffff; /* Background utama tetap terang */
+  --highlight: #b8c1ec; /* Dipertahankan untuk aksen */
+  --secondary: #ffb86c; /* Abu-abu terang, lebih halus dari putih polos */
+  --tertiary: #eef2ff; /* Biru pastel sangat soft sebagai latar pendukung */
+
+  --primary: #ffffff; /* Warna dasar yang lebih bersih */
+  --blue-accent: #0074f0; /* Biru keabu-abuan untuk kontras yang lebih halus */
+  --pink-accent: #ff4081; /* Biru keabu-abuan untuk kontras yang lebih halus */
+
+  --accent3: #ff4081;
+  --accent4: #e5366b;
+  --accent: #ff7eb6; /* Dipertahankan sebagai aksen */
+  --accent2: #ff4f94; /* Biru keabu-abuan untuk kontras yang lebih halus */
+  --border: #ff4081;
+  --border-hover: rgba(255, 64, 129, 0.2);
+
+  --tertiary: #3b82f6; /* Dipertahankan, memberikan sentuhan segar */
+}
+
+/* DARK MODE */
+.dark {
+  --background: #070707; /* Lebih gelap dan deep, nyaman untuk mata */
+  --text: #e0e0e0; /* Putih sedikit redup agar tidak terlalu kontras */
+  --paragraph: #c0c0c0; /* Lebih soft untuk teks paragraf */
+  --buttontext: #fff; /* Warna gelap agar lebih readable */
+  --buttonstroke: #e5e5e5; /* Warna abu-abu kebiruan yang lebih smooth */
+  --stroke: #2c2f41; /* Warna abu-abu kebiruan yang lebih smooth */
+  --hover: #101828 ;
+  --main: #24283b; /* Warna biru gelap untuk kontras */
+  --highlight: #eebbc3; /* Dipertahankan sebagai aksen */
+  --blue-accent: #4f9df7;
+  --pink-accent: #ff7eb6; /* Dipertahankan sebagai aksen */
+
+  --accent: #3b82f6;
+  --accent2: #007bff; /* Dipertahankan, memberikan sentuhan segar */
+  --accent3: #00d4ff; /* Biru keabu-abuan untuk kontras yang lebih halus */
+  --accent4: #00a2d4; /* Biru keabu-abuan untuk kontras yang lebih halus */
+  --accent5: #0074f0; /* Biru keabu-abuan untuk kontras yang lebih halus */
+  --border: #3b82f6;
+  --hover-hover: rgba(37, 99, 235, 0.2);
+
+  --secondary: #ffb86c; /* Warna oranye soft untuk secondary */
+  --tertiary: #8be9fd; /* Biru muda neon sebagai aksen tambahan */
+}
+
+/* ROOT END */
 
 @theme inline {
   --color-background: var(--background);
@@ -13,44 +67,70 @@
 
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('/League_Spartan/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+  src: url('/League_Spartan/LeagueSpartan-VariableFont_wght.ttf')
+    format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Warna latar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--accent2),
+    var(--accent)
+  ); /* Warna gradient */
+  border-radius: 10px;
+  transition: var(--blue-accent) 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    var(--accent2),
+    var(--accent)
+  ); /* Warna gradient */
+}
+
+/* body {
+  font-family: Arial, Helvetica, sans-serif;
 } */
 
-body {
+/* Tambahkan style custom menggunakan clamp */
+.clamp-width {
+  width: clamp(21rem + 12.6rem + 33.6vw + 42rem);
+}
+
+.headline {
+  padding: 4rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+@media(max-width:1200px ) {
+
+  html {
+    font-size: 60%;
+    
+
+  }
+
+ 
+
+
+
   
-  /* background:   #eebbc3; */
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* .container-body {
-  } */
-
-/* Tambahkan warna kustom langsung di CSS */
-:root {
-  --primary: #F8F9FA;
-  --secondary: #111827;
-  --accent: #3B82F6;
-}
-
-/* Contoh penggunaan */
-.text-primary {
-  color: var(--primary);
-}
-
-.bg-secondary {
-  background-color: var(--secondary);
-}
-
-.border-accent {
-  border-color: var(--accent);
 }

@@ -7,11 +7,14 @@ import About from '../components/About';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact'; 
 import Head from 'next/head';
+import ProjectResume from '@/components/ProjectResume';
 
+import { League_Spartan } from 'next/font/google';
+const leagueSpartan = League_Spartan({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <div>
+    <div className={leagueSpartan.className}>
       <Head>
         <title>Laras Rizki Alana</title>
       </Head>
@@ -20,6 +23,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <ProjectResume/>
         <Contact />
       </div>
     </div>

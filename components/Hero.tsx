@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useIsomorphicLayoutEffect } from '@react-hookz/web'; // Install: npm install @react-hookz/web
-
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,6 +56,7 @@ ctx.revert();  };
 
   return (
     <section
+      id='hero'
       ref={heroRef}
       className='relative w-full h-screen flex flex-col justify-center items-center text-(--primary) text-center overflow-hidden'>
       {/* Background */}
@@ -78,6 +79,7 @@ ctx.revert();  };
         width={250}
         height={250}
         priority
+        quality={75}
         loading='eager'
         className='relative z-10'
       />
@@ -98,16 +100,16 @@ ctx.revert();  };
           A Data Enthusiast & Office Management Expert.
         </p>
         <div className='relative z-10 space-x-7'>
-          <a
+          <Link
             href='#contact'
             className='bg-white py-2 text-black outline-offset-2 outline-2 px-6  rounded-lg hover:bg-black hover:border-black hover:text-white hover:outline-offset-2 hover:outline-black transition duration-700 '>
             Download CV
-          </a>
-          <a
+          </Link>
+          <Link
             href='#contact'
             className='bg-black py-2 text-white outline-offset-2 outline-2 px-6 rounded-lg hover:bg-white hover:border-white hover:text-black hover:outline-offset-2 hover:outline-white transition duration-700 '>
             Hubungi Saya
-          </a>
+          </Link>
         </div>
       </div>
     </section>
