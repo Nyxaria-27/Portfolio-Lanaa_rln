@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { MdDarkMode, MdLightMode, MdMenu, MdClose } from 'react-icons/md'; // Icons
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-
+import { Sun, MoonStar, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,7 +50,7 @@ const Navbar = () => {
     };
   }, []);
   return (
-    <div >
+    <div>
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -116,14 +115,14 @@ const Navbar = () => {
             <div
               className=' text-2xl cursor-pointer hover:text-(--secondary)'
               onClick={handleDarkModeToggle}>
-              {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
+              {isDarkMode ? <Sun /> : <MoonStar />}
             </div>
           </nav>
           {/* Mobile Menu Button */}
           <div
             className='md:hidden text-2xl cursor-pointer p-0.5 rounded-2xl hover:bg-gray-400'
             onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <MdClose /> : <MdMenu />}
+            {isMenuOpen ? <X /> : <Menu />}
           </div>
         </div>
       </motion.div>
@@ -138,7 +137,7 @@ const Navbar = () => {
             className={`fixed text-(--text) left-0 flex-wrap w-full h-fit  bg-(--backgound) flex flex-col items-center md:hidden px-3.5 z-70 ${
               isScrolled ? 'bg-transparent' : ' bg-(--background)'
             }`}>
-            <MdClose
+            <X
               className='md:hidden text-3xl cursor-pointer absolute top-5 right-7 rounded-2xl hover:bg-gray-500 p-0.5'
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
@@ -173,7 +172,7 @@ const Navbar = () => {
               <div
                 className='flex flex-col items-center text-2xl cursor-pointer w-full rounded-2xl hover:text-(--secondary) hover:bg-gray-700'
                 onClick={handleDarkModeToggle}>
-                {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
+                {isDarkMode ? <Sun /> : <MoonStar />}
               </div>
             </div>
           </motion.div>

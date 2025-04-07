@@ -12,7 +12,7 @@ const Hero = () => {
   const heroRef = useRef(null);
   const bgRef = useRef(null);
   const contentRef = useRef(null);
-  const tagRef = useRef(null); // Tag informasi tambahan
+  // const tagRef = useRef(null); // Tag informasi tambahan
 
   useIsomorphicLayoutEffect(() => {
   if (typeof window === 'undefined') return;
@@ -36,11 +36,11 @@ const Hero = () => {
       });
 
       // Hilangkan tag tambahan ketika scroll turun
-      tl.to(tagRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.5,
-      });
+      // tl.to(tagRef.current, {
+      //   opacity: 0,
+      //   y: -20,
+      //   duration: 0.5,
+      // });
 
       tl.to(contentRef.current, {
         opacity: 1,
@@ -64,10 +64,13 @@ ctx.revert();  };
         ref={bgRef}
         className='absolute inset-0  mx-auto  overflow-hidden bg-cover bg-center transition-all duration-500 ease-in-out will-change-transform  shadow-xl shadow-gray-700 border-2 border-black'>
         <Image
-          src='/bg-hero.webp'
+          src='/bg-hero1.webp'
           alt='Background Hero'
+          quality={75}
           fill
           priority
+          placeholder='blur'
+          blurDataURL='/bg-hero(preview-blur).webp' // ini gambar kecil 20x20 yang diblur
           className='object-cover'
         />
       </div>
@@ -85,11 +88,11 @@ ctx.revert();  };
       />
 
       {/* Tag Informasi Tambahan */}
-      <div
+      {/* <div
         ref={tagRef}
         className='absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black text-white px-4 py-2 rounded-lg text-sm shadow-lg transition-opacity'>
         Hover gambar untuk melihat lebih banyak info
-      </div>
+      </div> */}
 
       {/* Konten */}
       <div ref={contentRef} className='mt-5 opacity-0 relative z-10'>

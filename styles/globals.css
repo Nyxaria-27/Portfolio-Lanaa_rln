@@ -10,7 +10,7 @@
   --buttontext: #000; /* Lebih gelap agar lebih readable */
   --buttonstroke: #1e1e2e; /* Abu-abu soft untuk elemen garis */
   --stroke: #d1d5db; /* Abu-abu soft untuk elemen garis */
-  --hover: #d1d5dc ;
+  --hover: #d1d5dc;
   --main: #ffffff; /* Background utama tetap terang */
   --highlight: #b8c1ec; /* Dipertahankan untuk aksen */
   --secondary: #ffb86c; /* Abu-abu terang, lebih halus dari putih polos */
@@ -38,7 +38,7 @@
   --buttontext: #fff; /* Warna gelap agar lebih readable */
   --buttonstroke: #e5e5e5; /* Warna abu-abu kebiruan yang lebih smooth */
   --stroke: #2c2f41; /* Warna abu-abu kebiruan yang lebih smooth */
-  --hover: #101828 ;
+  --hover: #101828;
   --main: #24283b; /* Warna biru gelap untuk kontras */
   --highlight: #eebbc3; /* Dipertahankan sebagai aksen */
   --blue-accent: #4f9df7;
@@ -63,14 +63,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@font-face {
-  font-family: 'MyCustomFont';
-  src: url('/League_Spartan/LeagueSpartan-VariableFont_wght.ttf')
-    format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 /* Scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
@@ -111,26 +103,14 @@
   width: clamp(21rem + 12.6rem + 33.6vw + 42rem);
 }
 
-.headline {
-  padding: 4rem;
+html, body {
+  scroll-behavior: smooth;
+    overflow-x: hidden;
+
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-
-@media(max-width:1200px ) {
-
+@media (max-width: 1200px) {
   html {
     font-size: 60%;
-    
-
   }
-
- 
-
-
-
-  
 }

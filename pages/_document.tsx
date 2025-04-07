@@ -21,7 +21,7 @@ export default function Document() {
         <link rel='icon' href='/favicon.svg' type='image/x-icon' />
       </Head>
       <body
-        className='overflow-x-hidden  antialiased dark:bg-(--background) dark:text-(--text) transition-all duration-300 ease-in-out'>
+        className=' overflow-x-hidden  antialiased dark:bg-(--background) dark:text-(--text) transition-all duration-300 ease-in-out'>
         <Main />
         <NextScript />
       </body>
