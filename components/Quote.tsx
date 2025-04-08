@@ -2,7 +2,10 @@
 import { Source_Serif_4 } from 'next/font/google';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-const SourceSerif4 = Source_Serif_4({ display: 'swap' });
+const SourceSerif4 = Source_Serif_4({
+  display: 'swap',
+  subsets: ['latin'], 
+});
 
 const Quote = () => {
   const [show, setShow] = useState(false);
