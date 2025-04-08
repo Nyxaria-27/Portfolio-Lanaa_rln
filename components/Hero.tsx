@@ -58,7 +58,7 @@ ctx.revert();  };
     <section
       id='hero'
       ref={heroRef}
-      className='relative w-full h-screen flex flex-col justify-center items-center text-(--primary) text-center overflow-hidden'>
+      className='relative w-full min-h-screen h-[100vh] flex flex-col justify-center items-center text-(--primary) text-center overflow-hidden'>
       {/* Background */}
       <div
         ref={bgRef}
@@ -76,16 +76,18 @@ ctx.revert();  };
       </div>
 
       {/* Gambar Profil */}
-      <Image
-        src='/@Lanaa_rln (max).webp'
-        alt='Logo'
-        width={250}
-        height={250}
-        priority
-        quality={75}
-        loading='eager'
-        className='relative z-10'
-      />
+      <div className='relative w-[250px] h-[250px]'>
+        <Image
+          src='/@Lanaa_rln (max).webp'
+          alt='Logo'
+          fill
+          sizes='(max-width: 768px) 150px, 250px'
+          priority
+          quality={70}
+          loading='eager'
+          className='object-cover z-10 rounded-full'
+        />
+      </div>
 
       {/* Tag Informasi Tambahan */}
       {/* <div

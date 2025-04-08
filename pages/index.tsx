@@ -5,6 +5,7 @@ const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
 import Navbar from '@/components/Navbar';
 import About from '../components/About';
 import Experience from '../components/Experience';
+import Quote from '@/components/Quote';
 import Contact from '../components/Contact'; 
 import Head from 'next/head';
 import ProjectResume from '@/components/ProjectResume';
@@ -23,7 +24,8 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <ProjectResume/>
+        <ProjectResume />
+        <Quote/>
         <Contact />
       </div>
     </div>

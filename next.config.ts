@@ -5,6 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  turbo: false, // matikan turbopack
 };
 
 export default withBundleAnalyzer(nextConfig);
