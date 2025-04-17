@@ -86,14 +86,15 @@ const Contact = () => {
               <h2
                 className='text-4xl font-bold border-b-4 text-center inline-block p-2 hover:bg-(--hover) hover:shadow-lg hover:border-x-4 hover:shadow-gray-700 transition-all ease-in-out duration-300'
                 data-title="Let's Talk About Ideas">
-                Got an <span className='text-(--pink-accent)'>Idea</span>? Let's{' '}
+                Got an <span className='text-(--pink-accent)'>Idea</span>? Let&apos;s{' '}
                 <span className='text-(--blue-accent)'>bing It</span> to{' '}
                 <span className='text-(--blue-accent)'>Life</span> Together!
               </h2>
             </div>
 
             <p className='my-4 font-semibold text-xl font-serif text-center'>
-              "Open for collaboration, opportunities, and great conversations."
+              &quot;Open for collaboration, opportunities, and great
+              conversations.&quot;
             </p>
           </div>
 
@@ -129,7 +130,7 @@ const Contact = () => {
                   icon='📩'
                   highlight1='Email'
                   information=': larasrizkialanaa31@gmail.com'
-                  paragraph1='Got an idea? Let&apos;s bing it to life together!'
+                  paragraph1="Got an idea? Let's bing it to life together!"
                 />
               </div>
             </div>
