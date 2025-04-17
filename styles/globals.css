@@ -106,8 +106,10 @@
 html, body {
   scroll-behavior: smooth;
     overflow-x: hidden;
-
+   box-sizing: border-box;
 }
+
+
 
 @media (max-width: 1200px) {
   html {

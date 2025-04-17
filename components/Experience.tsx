@@ -39,13 +39,14 @@ const MyImageSection = (
       {/* <div className='absolute aspect-square inset-0 rounded-full bg-(--accent) translate-y-44 ' /> */}
       <div className='img-3 w-[77vw] h-[77vw] md:w-[30vw] md:h-[30vw] grid place-items-center rounded-full overflow-hidden border-solid border-(--accent3) border-20  '>
         <Image
-          src='/Laras.jpg'
+          src='/Laras.webp'
           alt='Laras Rizki Alana'
           quality={75}
           width={750}
           height={550}
           data-nimg={1}
-          className='relative cursor-pointer '
+        layout='responsive'
+          className='relative '
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px'
         />
       </div>

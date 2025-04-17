@@ -4,16 +4,17 @@ import { SectionTemplate } from './SectionTemplate';
 const MyImageSection = (
   <div className=''>
     <div className='sm:absolute -right-40 h-[40vw] w-[40vw] rounded-full bg-(--accent2)' />
-    <div className='relative rounded-b-full overflow-hidden clamp-width  '>
+    <div className='relative rounded-b-full overflow-hidden clamp-width h-full '>
       <div className='absolute aspect-square inset-0 rounded-full bg-(--accent) translate-y-44 ' />
       <Image
-        src='/Profile2.png'
+        src='/Profile2.webp'
         alt='Laras Rizki Alana'
         quality={75}
         width={770}
         height={570}
+        layout='responsive'
         data-nimg={1}
-        className='relative w-full '
+        className='relative  '
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px'
       />
     </div>

@@ -58,7 +58,7 @@ ctx.revert();  };
     <section
       id='hero'
       ref={heroRef}
-      className='relative w-full min-h-screen h-[100vh] flex flex-col justify-center items-center text-(--primary) text-center overflow-hidden'>
+      className='relative w-full min-h-screen flex flex-col justify-center items-center text-(--primary) text-center overflow-hidden'>
       {/* Background */}
       <div
         ref={bgRef}

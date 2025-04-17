@@ -46,7 +46,7 @@ const SectionTemplateComponent = ({
   return (
     <section
       id={id}
-      className='relative h-screen  flex flex-col  justify-center'>
+      className='relative min-h-screen  flex flex-col  justify-center'>
       <div className='mx-auto text-center px-6 '>
         <div
           className={`sm:gap-52 mt-8 flex flex-col ${
