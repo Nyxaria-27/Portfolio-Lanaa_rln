@@ -7,7 +7,7 @@ const MyImageSection = (
   <div className=''>
     <div className=' flex justify-center flex-col items-center gap-7 absolute bg-(--accent) sm:bg-transparent rounded-full h-[40vw] w-[40vw] lg:w-[30vw] lg:h-[30vw] bottom-40 md:-bottom-0 -right-10 -z-10 sm:z-0 hover:z-30'>
       <Image
-        src='/secretarial.webp'
+        src='/Secretarial.webp'
         alt='Finance'
         quality={75}
         width={250}
@@ -52,7 +52,7 @@ const MyImageSection = (
       </div>
       <div className=' flex justify-center flex-col items-center gap-7  absolute h-[40vw] w-[40vw] lg:w-[30vw] lg:h-[30vw] bottom-40 md:-bottom-0 -translate-x-72 -z-10 sm:z-0 hover:z-30'>
         <Image
-          src='/secretarial.webp'
+          src='/Secretarial.webp'
           alt='Finance'
           quality={75}
           width={250}
