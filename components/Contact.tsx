@@ -86,9 +86,9 @@ const Contact = () => {
               <h2
                 className='text-4xl font-bold border-b-4 text-center inline-block p-2 hover:bg-(--hover) hover:shadow-lg hover:border-x-4 hover:shadow-gray-700 transition-all ease-in-out duration-300'
                 data-title="Let's Talk About Ideas">
-                Got an <span className='text-(--pink-accent)'>Idea</span>? Let’s{' '}
-                <span className='text-(--blue-accent)'>bing It</span> to{' '}
-                <span className='text-(--blue-accent)'>Life</span> Together!
+                Got an <span className='text-(--pink-accent)'>Idea</span>?
+                Let&quot;s <span className='text-(--blue-accent)'>bing It</span>{' '}
+                to <span className='text-(--blue-accent)'>Life</span> Together!
               </h2>
             </div>
 
@@ -115,21 +115,21 @@ const Contact = () => {
                   icon='📸'
                   highlight1='Instagram'
                   information=': @Lanaa_rln'
-                  paragraph1='Don’t be a stranger — say hello!'
+                  paragraph1="Don't be a stranger — say hello!"
                 />
                 <ContactLink
                   href='https://wa.link/tfxx01'
                   icon='📞'
                   highlight1='WhatsApp'
                   information=': +62 895-8111-51020'
-                  paragraph1='Im just one message away from our next big thing.'
+                  paragraph1="Im just one message away from our next big thing."
                 />
                 <ContactLink
                   href='mailto:larasrizkialanaa31@gmail.com'
                   icon='📩'
                   highlight1='Email'
                   information=': larasrizkialanaa31@gmail.com'
-                  paragraph1='Got an idea? Let’s bing it to life together!'
+                  paragraph1="Got an idea? Let's bing it to life together!"
                 />
               </div>
             </div>
